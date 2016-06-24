@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 11:47:55 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/06/24 20:09:03 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/06/24 20:20:09 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,21 @@ int		pf_check_prec(char *str, t_variable *var)
 	int prec;
 	int i;
 
-	prec = -1;
 	if (*str == '.' && (i = 1))
 	{
 		if (ft_isdigit(*(++str)))
 		{
 			i++;
-			if (ft_atoi(str) >= 0)
-				prec = ft_atoi(str);
-			var->prec = prec;
+			if ((prec = ft_atoi(str)) >= 0)
+				var->prec = prec;
 			while ((prec /= 10) > 0 && i++)
 				str++;
 			str++;
 		}
-		else if (*str == '*')
+		else if (*str == '*' && i++)
 		{
 			var->prec_star++;
 			var->prec = -2;
-			i++;
 		}
 		else
 			var->prec = 0;
