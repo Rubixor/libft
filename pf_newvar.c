@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/12 11:20:43 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/06/24 18:47:55 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/06/28 21:27:26 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-t_variable	*pf_newvar(t_variable **var)
+t_variable	*pf_newvar(void)
 {
 	t_variable *new;
 
@@ -36,5 +36,5 @@ t_variable	*pf_newvar(t_variable **var)
 	new->arg = 0;
 	new->next = NULL;
 	new->arg_len = 0;
-	return (pf_var_pushback(var, new));
+	return (new);
 }

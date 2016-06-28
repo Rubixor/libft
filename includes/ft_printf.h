@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 15:36:16 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/06/24 19:51:35 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/06/28 21:25:17 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int						pf_long(t_variable *v, va_list args, int fd);
 
 int						pf_longlong(t_variable *v, va_list args, int fd);
 
-t_variable				*pf_newvar(t_variable **var);
+t_variable				*pf_newvar(void);
 
 int						pf_schar(t_variable *v, va_list args, int fd);
 
