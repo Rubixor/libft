@@ -6,11 +6,12 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/19 19:15:29 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/06/19 19:28:48 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/06/29 16:57:53 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 int		ft_size_bin(long long n)
 {
@@ -19,5 +20,6 @@ int		ft_size_bin(long long n)
 
 	s = ft_i128toa(n, 2, "01");
 	i = ft_strlen(s);
+	free(s);
 	return (i);
 }
