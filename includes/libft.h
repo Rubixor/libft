@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/06/24 19:41:42 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/08/08 14:54:21 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ typedef struct		s_list
 
 int					ft_atoi(const char *s);
 
+long				ft_atol(const char *s);
+
 void				ft_bzero(void *s, size_t n);
+
+int					ft_count_words(const char *s, char c);
 
 char				*ft_i128toa(__int128 nb, unsigned int base, char *map);
 
@@ -119,6 +123,8 @@ char				*ft_strdup(const char *str);
 char				*ft_strdup_len(const char *str, char c);
 
 int					ft_strequ(char const *s1, char const *s2);
+
+int					ft_strisdigit(const char *s);
 
 void				ft_striter(char *s, void (*f)(char *));
 

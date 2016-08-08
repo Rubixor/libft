@@ -6,13 +6,14 @@
 #    By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#    Updated: 2016/06/24 19:51:22 by mdenoyel         ###   ########.fr        #
+#    Updated: 2016/08/08 14:45:37 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 OBJ = ft_atoi.o \
+	  ft_atol.o \
 	  ft_bzero.o \
 	  ft_i128toa.o \
 	  ft_isalnum.o \

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 13:21:18 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/08/08 14:35:38 by mdenoyel         ###   ########.fr       */
+/*   Created: 2016/08/08 14:35:22 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/08/08 14:41:29 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *s)
+long	ft_atol(const char *s)
 {
-	int i;
-	int res;
-	int coeff;
+	int		i;
+	long	res;
+	long	coeff;
 
 	i = 0;
 	res = 0;

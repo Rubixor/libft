@@ -6,14 +6,14 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 19:49:08 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/01/18 17:50:19 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/08/08 14:47:51 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/libft.h"
 #include <stdlib.h>
 
-static int		ft_count_words(const char *s, char c)
+int		ft_count_words(const char *s, char c)
 {
 	int nb;
 
@@ -23,14 +23,14 @@ static int		ft_count_words(const char *s, char c)
 		while (*s == c)
 			s++;
 		if (!*s)
-			return (nb + 1);
+			return (nb);
 		else
 			s++;
 	}
-	return (nb + 1);
+	return (nb);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
 	size_t	len;
 	int		i;
@@ -38,7 +38,7 @@ char			**ft_strsplit(char const *s, char c)
 
 	len = 0;
 	i = 0;
-	tab = (char **)malloc(sizeof(char *) * (ft_count_words(s, c)));
+	tab = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (tab)
 	{
 		while (*s)
