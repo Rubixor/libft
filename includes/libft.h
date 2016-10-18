@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/08/08 14:54:21 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/10/18 12:05:36 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+int					ft_abs(int i);
 
 int					ft_atoi(const char *s);
 
@@ -173,5 +175,7 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 
 int					ft_wcslen(const wchar_t *c);
+
+int					get_next_line(int const fd, char **line);
 
 #endif

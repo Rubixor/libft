@@ -6,13 +6,14 @@
 #    By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#    Updated: 2016/08/08 14:45:37 by mdenoyel         ###   ########.fr        #
+#    Updated: 2016/10/18 12:06:07 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-OBJ = ft_atoi.o \
+OBJ = ft_abs.o \
+	  ft_atoi.o \
 	  ft_atol.o \
 	  ft_bzero.o \
 	  ft_i128toa.o \
@@ -61,6 +62,7 @@ OBJ = ft_atoi.o \
 	  ft_strdup.o \
 	  ft_strdup_len.o \
 	  ft_strequ.o \
+	  ft_strisdigit.o \
 	  ft_striter.o \
 	  ft_striteri.o \
 	  ft_strjoin.o \
@@ -85,6 +87,7 @@ OBJ = ft_atoi.o \
 	  ft_tolower.o \
 	  ft_toupper.o \
 	  ft_wcslen.o \
+	  get_next_line.o
 
 PRINTF = ft_printf.o \
 		 pf_char.o \

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 19:01:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/09/27 14:24:34 by mdenoyel         ###   ########.fr       */
+/*   Created: 2016/01/10 15:32:21 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/02/07 15:26:48 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(void *a, void *b)
-{
-	char tmp;
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-	tmp = *((char *)a);
-	*((char *)a) = *((char *)b);
-	*((char *)b) = tmp;
-}
+# define BUFF_SIZE 8
+
+int		get_next_line(int const fd, char **line);
+
+#endif
