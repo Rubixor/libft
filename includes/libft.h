@@ -6,13 +6,15 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/06/16 17:30:50 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/06/19 22:43:02 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include "ft_scanf.h"
+# include "ft_sscanf.h"
+# include "get_next_line.h"
+# include "ft_printf.h"
 # include <string.h>
 # include <wchar.h>
 
