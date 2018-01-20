@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2015/11/30 14:28:55 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/18 17:49:23 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_itoa(int n)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
+	int		i;
+	char	*new;
 
-	a = (char *)malloc(sizeof(char) * 12);
 	i = 0;
-	if (!a)
-		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
-	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
+	new = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (new)
 	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
+		while (s[i])
+		{
+			new[i] = f(s[i]);
+			i++;
+		}
+		new[i] = '\0';
 	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
+	else if (!new)
+		return (NULL);
+	return (new);
 }

@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2015/12/02 14:30:44 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/18 17:50:30 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_itoa(int n)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
+	int i;
+	int j;
 
-	a = (char *)malloc(sizeof(char) * 12);
 	i = 0;
-	if (!a)
-		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
-	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
+	j = 0;
+	if (ft_strlen(s2) == 0)
+		return ((char *)s1);
+	while (s1[i])
 	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
+		i -= j;
+		j = 0;
+		while (s1[i] == s2[j])
+		{
+			i++;
+			j++;
+			if (s2[j] == '\0')
+				return ((char *)s1 + i - j);
+		}
+		i++;
 	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
+	return (NULL);
 }

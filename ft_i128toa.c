@@ -6,11 +6,11 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/14 15:35:37 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/05/28 14:54:02 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/01/19 22:40:41 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static int	ft_i128toa_len(__int128 n, int base)
@@ -34,7 +34,8 @@ char		*ft_i128toa(__int128 n, unsigned int base, char *map)
 	if (base > ft_strlen(map))
 		return (NULL);
 	len = ft_i128toa_len(n, base);
-	buf = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(buf = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
 	i = len;
 	buf[i--] = '\0';
 	if (n < 0)

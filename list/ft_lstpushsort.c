@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lstpushsort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2016/02/24 14:52:40 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/06/10 16:18:38 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_itoa(int n)
+void	ft_lstpushsort(t_list **lst, t_list *item, int (*cmp)())
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
+	t_list *i;
+	t_list *last;
 
-	a = (char *)malloc(sizeof(char) * 12);
-	i = 0;
-	if (!a)
-		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
+	if (!*lst)
+		*lst = item;
 	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
 	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
+		i = *lst;
+		last = 0;
+		while (i && (*cmp)(i->content, item->content) < 0)
+		{
+			last = i;
+			i = i->next;
+		}
+		if (!last)
+			ft_lstadd(lst, item);
+		else
+			ft_lstinsert(&last, item);
 	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
 }

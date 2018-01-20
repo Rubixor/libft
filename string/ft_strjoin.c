@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2015/12/09 19:23:48 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/18 17:48:50 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_itoa(int n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
+	char	*new;
+	int		i;
+	int		j;
 
-	a = (char *)malloc(sizeof(char) * 12);
 	i = 0;
-	if (!a)
-		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
-	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
+	new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (new)
 	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
+		while (s1[i])
+		{
+			new[i] = s1[i];
+			i++;
+		}
+		j = 0;
+		while (s2[j])
+		{
+			new[i] = s2[j];
+			i++;
+			j++;
+		}
+		new[i] = '\0';
 	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
+	else
+		return (NULL);
+	return (new);
 }

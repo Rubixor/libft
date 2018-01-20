@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2015/12/11 17:00:55 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/18 17:50:46 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_itoa(int n)
+char	*ft_strtrim(char const *s)
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
+	char	*new;
+	int		i;
+	int		len;
 
-	a = (char *)malloc(sizeof(char) * 12);
 	i = 0;
-	if (!a)
-		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
-	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
+	len = ft_strlen(s) - 1;
+	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
+		len--;
+	len++;
+	while ((i < len) && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))
+		i++;
+	new = ft_strsub(s, i, (len - i));
+	if (new)
 	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
+		new[len - i] = '\0';
+		return (new);
 	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
+	return (NULL);
 }

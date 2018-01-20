@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2015/12/11 15:22:47 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/02/07 17:45:16 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_itoa(int n)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
+	t_list			*new;
+	unsigned char	*newcontent;
 
-	a = (char *)malloc(sizeof(char) * 12);
-	i = 0;
-	if (!a)
+	if (!(new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
-	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
+	if (content)
 	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
+		if ((newcontent = (unsigned char *)malloc(content_size)))
+		{
+			ft_memcpy(newcontent, content, content_size);
+			new->content = (void *)newcontent;
+		}
+		if (content_size)
+			new->content_size = content_size;
+		else
+			new->content_size = 0;
 	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
+	else
+		new->content = NULL;
+	new->next = NULL;
+	return (new);
 }

@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/05 12:11:09 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/04/18 16:20:08 by mdenoyel         ###   ########.fr       */
+/*   Created: 2015/12/06 15:56:48 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/18 17:46:39 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned int nb;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	if (n < 0)
+	if (dest == src)
+		return (dest);
+	if (dest < src || dest > src + n)
+		return (ft_memcpy(dest, src, n));
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	while (n > 0)
 	{
-		ft_putchar('-');
-		nb = -(unsigned int)n;
+		n--;
+		d[n] = s[n];
 	}
-	else
-		nb = (unsigned int)n;
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-		ft_putchar((char)nb + '0');
+	return (dest);
 }

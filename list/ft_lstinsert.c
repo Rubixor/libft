@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lstinsert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2016/02/24 14:54:12 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/02/25 10:25:36 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_itoa(int n)
+void	ft_lstinsert(t_list **last, t_list *item)
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
-
-	a = (char *)malloc(sizeof(char) * 12);
-	i = 0;
-	if (!a)
-		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
+	if (!*last)
+		*last = item;
 	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
 	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
+		item->next = (*last)->next;
+		(*last)->next = item;
 	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
 }

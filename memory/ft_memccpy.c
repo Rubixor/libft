@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2015/12/07 17:08:26 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/18 17:46:11 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_itoa(int n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
-	a = (char *)malloc(sizeof(char) * 12);
 	i = 0;
-	if (!a)
-		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
-	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	while (i < n)
 	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
+		d[i] = s[i];
+		if (d[i] == (unsigned char)c)
+			return (dst + i + 1);
+		i++;
 	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
+	return (NULL);
 }

@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2015/11/27 18:42:23 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/18 17:49:42 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_itoa(int n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
+	size_t i;
 
-	a = (char *)malloc(sizeof(char) * 12);
 	i = 0;
-	if (!a)
-		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
-	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
-	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
-	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
+	if (!n)
+		return (0);
+	n--;
+	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n)
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

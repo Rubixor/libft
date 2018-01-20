@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 19:31:25 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/05/14 17:07:01 by mdenoyel         ###   ########.fr       */
+/*   Created: 2015/12/06 16:51:57 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/18 17:50:36 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int		ft_isspace(int c)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	const char	*str;
-	int			i;
+	char	*sub;
+	size_t	i;
 
 	i = 0;
-	str = " \n\t\v\f\r";
-	while (c != str[i])
+	sub = malloc(sizeof(char) * (len + 1));
+	if (sub)
 	{
-		if (str[i] == '\0')
-			return (0);
-		i++;
+		while (i < len)
+		{
+			sub[i] = s[start];
+			i++;
+			start++;
+		}
+		sub[i] = '\0';
 	}
-	return (1);
+	else
+		return (NULL);
+	return (sub);
 }

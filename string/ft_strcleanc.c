@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strcleanc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 17:46:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/04/11 14:42:19 by mdenoyel         ###   ########.fr       */
+/*   Created: 2016/01/23 15:55:52 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/31 16:53:01 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_itoa(int n)
+void	ft_strcleanc(char **str, char c)
 {
-	char			*a;
-	int				i;
-	unsigned int	nb;
+	size_t	i;
+	size_t	j;
+	size_t	final_len;
+	char	*strtmp;
 
-	a = (char *)malloc(sizeof(char) * 12);
-	i = 0;
-	if (!a)
-		return (NULL);
-	if (n < 0)
-		nb = (unsigned int)(-n);
-	else
-		nb = (unsigned int)n;
-	while (i == 0 || nb)
+	i = ft_strsub_len((char const *)(*str), c) + 1;
+	j = 0;
+	final_len = ft_strlen(*str) - i;
+	strtmp = NULL;
+	if (final_len > 0)
+		strtmp = (char *)malloc(sizeof(char) * (final_len + 1));
+	if (strtmp)
 	{
-		a[i++] = '0' + (nb % 10);
-		nb /= 10;
+		while (i < ft_strlen(*str))
+		{
+			strtmp[j] = (*str)[i];
+			i++;
+			j++;
+		}
+		strtmp[j] = '\0';
+		if (*str)
+			free(*str);
 	}
-	if (n < 0)
-		a[i++] = '-';
-	a[i] = '\0';
-	ft_strrev(a);
-	return (a);
+	*str = strtmp;
 }
