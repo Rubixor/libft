@@ -23,7 +23,6 @@ CFLAGS = 		-Wall -Wextra -Werror -g3
 OBJ =			ft_abs.o \
 				ft_atoi.o \
 				ft_atol.o \
-				ft_bzero.o \
 				ft_i128toa.o \
 				ft_isalnum.o \
 				ft_isalpha.o \
@@ -57,7 +56,8 @@ MEMORY =		ft_memalloc.o \
 				ft_memcpy.o \
 				ft_memdel.o \
 				ft_memmove.o \
-				ft_memset.o
+				ft_memset.o \
+				ft_bzero.o
 
 DIR_STRING =	string
 STRING =		ft_strcat.o \
