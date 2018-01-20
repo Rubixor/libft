@@ -103,8 +103,11 @@ LIST =			ft_lst_pushback.o \
 				ft_lstnew.o \
 				ft_lstpushsort.o
 
-DIR_PRINTF =	printf
-PRINTF =		ft_printf.o \
+DIR_SCANF =		scanf
+SCANF =			ft_sscanf.o
+
+#DIR_PRINTF =	printf
+#PRINTF =		ft_printf.o \
 				pf_char.o \
 				pf_check_flags.o \
 				pf_check_len.o \
@@ -131,19 +134,22 @@ ALL_DIRS =		$(BUILD_DIR) \
 				$(BUILD_DIR)/$(DIR_MEMORY) \
 				$(BUILD_DIR)/$(DIR_STRING) \
 				$(BUILD_DIR)/$(DIR_LIST) \
-				$(BUILD_DIR)/$(DIR_PRINTF)
+				$(BUILD_DIR)/$(DIR_SCANF) \
+#				$(BUILD_DIR)/$(DIR_PRINTF)
 
 ALL_OBJS=$(OBJ:%.o=$(BUILD_DIR)/%.o) \
 		$(MEMORY:%.o=$(BUILD_DIR)/$(DIR_MEMORY)/%.o) \
 		$(STRING:%.o=$(BUILD_DIR)/$(DIR_STRING)/%.o) \
 		$(LIST:%.o=$(BUILD_DIR)/$(DIR_LIST)/%.o) \
-		$(PRINTF:%.o=$(BUILD_DIR)/$(DIR_PRINTF)/%.o)
+		$(SCANF:%.o=$(BUILD_DIR)/$(DIR_SCANF)/%.o) \
+#		$(PRINTF:%.o=$(BUILD_DIR)/$(DIR_PRINTF)/%.o)
 
 ALL_SRCS=$(OBJ:%.o=%.c) \
 		$(MEMORY:%.o=$(DIR_MEMORY)/%.c) \
 		$(STRING:%.o=$(DIR_STRING)/%.c) \
 		$(LIST:%.o=$(DIR_LIST)/%.c) \
-		$(PRINTF:%.o=$(DIR_PRINTF)/%.c)
+		$(SCANF:%.o=$(DIR_SCANF)/%.c) \
+#		$(PRINTF:%.o=$(DIR_PRINTF)/%.c)
 
 all : $(NAME)
 
