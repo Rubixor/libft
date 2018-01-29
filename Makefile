@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#*   Updated: 2018/01/19 22:45:40 by mdenoyel         ###   ########.fr       *#
+#    Updated: 2018/01/26 01:09:05 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC =			clang
 
 RM =			rm -rf
 
-CFLAGS = 		-Wall -Wextra -Werror -g3
+CFLAGS = 		-Wall -Wextra -Werror -pipe
 
 OBJ =			ft_abs.o \
 				ft_atoi.o \
