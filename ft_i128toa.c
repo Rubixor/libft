@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static int	ft_i128toa_len(__int128 n, int base)
+static unsigned int		ft_i128toa_len(__int128 n, unsigned int base)
 {
-	int len;
+	unsigned int 	len;
 
 	len = 1;
 	if (n < 0)
@@ -25,11 +25,11 @@ static int	ft_i128toa_len(__int128 n, int base)
 	return (len);
 }
 
-char		*ft_i128toa(__int128 n, unsigned int base, char *map)
+char					*ft_i128toa(__int128 n, unsigned int base, char *map)
 {
-	char	*buf;
-	int		i;
-	int		len;
+	char				*buf;
+	unsigned int		i;
+	unsigned int		len;
 
 	if (base > ft_strlen(map))
 		return (NULL);

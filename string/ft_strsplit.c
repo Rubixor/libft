@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_count_words(const char *s, char c)
+size_t		ft_count_words(const char *s, char c)
 {
-	int nb;
+	size_t		nb;
 
 	nb = 0;
 	while (*s && ++nb)
@@ -30,11 +30,11 @@ int		ft_count_words(const char *s, char c)
 	return (nb);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	size_t	len;
-	int		i;
-	char	**tab;
+	size_t		len;
+	int			i;
+	char		**tab;
 
 	len = 0;
 	i = 0;

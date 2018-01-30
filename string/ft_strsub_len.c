@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <string.h>
 
-size_t	ft_strsub_len(char const *s, char c)
+size_t		ft_strsub_len(char const *s, char c)
 {
-	int i;
+	size_t		i;
 
 	i = 0;
 	while (*s && *s != c && *s++)

@@ -18,7 +18,7 @@ CC =			clang
 
 RM =			rm -rf
 
-CFLAGS = 		-Wall -Wextra -Werror -pipe
+CFLAGS = 		-Wall -Wextra -Werror -Weverything -pipe
 
 OBJ =			ft_abs.o \
 				ft_atoi.o \

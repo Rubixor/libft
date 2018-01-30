@@ -33,7 +33,7 @@ long				ft_atol(const char *s);
 
 void				ft_bzero(void *s, size_t n);
 
-int					ft_count_words(const char *s, char c);
+size_t				ft_count_words(const char *s, char c);
 
 char				*ft_i128toa(__int128 nb, unsigned int base, char *map);
 
@@ -65,7 +65,8 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 
-void				ft_lstpushsort(t_list **lst, t_list *item, int (*cmp)());
+void				ft_lstpushsort(t_list **lst, t_list *item,
+						int (*cmp)(t_list *, t_list *));
 
 t_list				*ft_lst_pushback(t_list **lst, t_list *item);
 
@@ -101,13 +102,13 @@ void				ft_putnbr(int n);
 
 void				ft_putnbr_fd(int n, int fd);
 
-int					ft_putstr(const char *s);
+size_t				ft_putstr(const char *s);
 
 void				ft_putstrlen(const char *s, int len);
 
-int					ft_putstr_fd(const char *s, int fd);
+size_t				ft_putstr_fd(const char *s, int fd);
 
-int					ft_size_bin(long long n);
+size_t				ft_size_bin(long long n);
 
 char				*ft_strcat(char *s1, const char *s2);
 
@@ -171,7 +172,7 @@ size_t				ft_strsub_len(char const *s, char c);
 
 char				*ft_strtrim(char const *s);
 
-void				ft_swap(int *a, int *b);
+void				ft_swap(void *a, void *b);
 
 int					ft_tolower(int c);
 

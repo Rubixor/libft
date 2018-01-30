@@ -15,15 +15,15 @@
 
 char	*ft_strdup_len(const char *str, char c)
 {
-	int		i;
-	char	*dst;
-	int		len;
+	unsigned int	i;
+	char			*dst;
+	size_t			len;
 
 	i = 0;
 	len = ft_strsub_len(str, c);
 	if (len == 0)
 		len = 1;
-	dst = (char *)malloc(sizeof(char) * (len));
+	dst = (char *)malloc(sizeof(char) * len);
 	if (dst)
 	{
 		while (str[i] && i < len)

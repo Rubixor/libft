@@ -20,7 +20,7 @@ char	*ft_strstr(const char *s1, const char *s2)
 	i = 0;
 	j = 0;
 	if (ft_strlen(s2) == 0)
-		return ((char *)s1);
+		return ((char *)(size_t)s1);
 	while (s1[i])
 	{
 		i -= j;
@@ -30,7 +30,7 @@ char	*ft_strstr(const char *s1, const char *s2)
 			i++;
 			j++;
 			if (s2[j] == '\0')
-				return ((char *)s1 + i - j);
+				return ((char *)(size_t)&s1[i - j]);
 		}
 		i++;
 	}

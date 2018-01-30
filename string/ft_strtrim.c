@@ -14,9 +14,9 @@
 
 char	*ft_strtrim(char const *s)
 {
-	char	*new;
-	int		i;
-	int		len;
+	char			*new;
+	unsigned int	i;
+	size_t			len;
 
 	i = 0;
 	len = ft_strlen(s) - 1;

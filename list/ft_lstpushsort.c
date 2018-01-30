@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_lstpushsort(t_list **lst, t_list *item, int (*cmp)())
+void	ft_lstpushsort(t_list **lst, t_list *item, int (*cmp)(t_list*, t_list*))
 {
 	t_list *i;
 	t_list *last;

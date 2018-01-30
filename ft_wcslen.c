@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <wchar.h>
 
 int		ft_wcslen(const wchar_t *c)

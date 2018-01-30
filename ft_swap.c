@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_swap(void *a, void *b)
 {
-	char tmp;
+	char	tmp;
 
 	tmp = *((char *)a);
 	*((char *)a) = *((char *)b);

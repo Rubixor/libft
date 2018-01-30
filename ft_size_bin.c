@@ -13,10 +13,10 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_size_bin(long long n)
+size_t		ft_size_bin(long long n)
 {
-	int		i;
-	char	*s;
+	size_t		i;
+	char		*s;
 
 	s = ft_i128toa(n, 2, "01");
 	i = ft_strlen(s);
