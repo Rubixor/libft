@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 14:48:21 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/01/26 01:12:26 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/02/07 19:24:30 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,31 @@ static int		sf_run(t_scanf *sf, const char *format)
 	format++;
 	if (!*format)
 		return(-1);
+	sf_set_flags(sf);
 	while (i--)
 	{
 		if (*format == g_sf_run[i].letter)
+		{
 			g_sf_run[i].run(sf);
+			return (1);
+		}
 	}
 	return (0); //
 }
 
 static int		sscanf_engine(t_scanf *sf, const char *format)
 {
-	while (*sf->str == *format)
+	while (*sf->str)
 	{
 		if (*format == '%')
-		{
-			sf_run(sf, format);
-		}
-		else
+			format += sf_run(sf, format);
+		else if (*sf->str == *format)
 		{
 			sf->str++;
 			format++;
 		}
+		else
+			return (1);
 	}
 	return (0); //
 }
@@ -59,5 +63,7 @@ int				ft_sscanf(const char *s, const char *format, ...)
 	va_start(args, format);
 	sscanf_engine(&sf, format);
 	va_end(args);
+	//ft_putendl(sf.str);
+	//ft_putendl(sf.format);
 	return (0);
 }
