@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 14:48:21 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/02/07 19:24:30 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/02/09 17:10:37 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int				ft_sscanf(const char *s, const char *format, ...)
 	sf.str = s;
 	sf.str_origin = s;
 	sf.format = format;
+	sf.flags = 0;
 	va_start(args, format);
 	sscanf_engine(&sf, format);
 	va_end(args);
