@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 23:10:56 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/02/09 18:32:39 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/02/09 19:36:10 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,27 @@
 # define SF_FLAG_J		(1u << 5)
 # define SF_FLAG_STAR	(1u << 6)
 
+# define SF_FLAG_MAXLEN	(1u << 8)
+# define SF_FLAG_PREC	(1u << 9)
+
 typedef struct		s_scanf
 {
 	va_list			*args;
 	const char		*str;
 	const char		*str_origin;
 	const char		*format;
+	const char		*format_origin;
 	unsigned int	flags;
 	unsigned int	padding;
+	unsigned int	maxlen;
+	unsigned int	precision;
 }					t_scanf;
 
 int					sf_run_int(t_scanf *sf);
 int					sf_run_str(t_scanf *sf);
 
 void				sf_set_flags(t_scanf *sf);
+void				sf_set_maxlen(t_scanf *sf);
 
 typedef struct		s_scanf_run
 {

@@ -6,7 +6,7 @@
 #    By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#    Updated: 2018/02/07 19:18:38 by mdenoyel         ###   ########.fr        #
+#    Updated: 2018/02/09 19:43:47 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ CFLAGS = 		-Wall -Wextra -Werror -Weverything -pipe
 OBJ =			ft_abs.o \
 				ft_atoi.o \
 				ft_atol.o \
+				ft_atonum.o \
 				ft_i128toa.o \
 				ft_isalnum.o \
 				ft_isalpha.o \
@@ -107,7 +108,8 @@ DIR_SCANF =		scanf
 SCANF =			ft_sscanf.o \
 				sf_run_int.o \
 				sf_run_str.o \
-				sf_set_flags.o
+				sf_set_flags.o \
+				sf_set_maxlen.o
 
 #DIR_PRINTF =	printf
 #PRINTF =		ft_printf.o \

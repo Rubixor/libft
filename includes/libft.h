@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2017/06/19 22:43:02 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/02/09 19:43:00 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_list
 int					ft_abs(int i);
 int					ft_atoi(const char *s);
 long				ft_atol(const char *s);
+int					ft_atonum(const char *s, unsigned int *nb);
 void				ft_bzero(void *s, size_t n);
 size_t				ft_count_words(const char *s, char c);
 char				*ft_i128toa(__int128 nb, unsigned int base, char *map);
