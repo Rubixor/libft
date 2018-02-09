@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 23:10:56 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/02/09 19:36:10 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/02/09 20:01:01 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stdarg.h>
 # include <stdlib.h>
+
+# define SF_OK 0
+# define SF_ERROR 1
 
 # define SF_FLAG_LL		(1u << 0)
 # define SF_FLAG_L		(1u << 1)
@@ -35,9 +38,9 @@ typedef struct		s_scanf
 	const char		*format;
 	const char		*format_origin;
 	unsigned int	flags;
-	unsigned int	padding;
 	unsigned int	maxlen;
 	unsigned int	precision;
+	unsigned int	padding;
 }					t_scanf;
 
 int					sf_run_int(t_scanf *sf);

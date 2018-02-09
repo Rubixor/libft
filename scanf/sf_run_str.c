@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:00:42 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/02/09 18:50:33 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/02/09 19:59:59 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int		sf_run_str(t_scanf *sf)
 		sf->str++;
 		arg++;
 	}
-	if (!*arg) // Ok
-		return (0);
-	// Error
-	return (1);
+	if (!*arg)
+		return (SF_OK);
+	return (SF_ERROR);
 }
