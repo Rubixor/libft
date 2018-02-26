@@ -6,13 +6,25 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 14:48:21 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/02/09 19:05:46 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/02/26 15:26:22 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_sscanf.h"
 #include "libft.h"
 #include <stdarg.h>
+
+static void		sf_init(t_scanf *sf, const char *s, const char *format, va_list *args)
+{
+	sf->args = args;
+	sf->str = s;
+	sf->str_origin = s;
+	sf->format = format;
+	sf->format_origin = format;
+	sf->flags = 0;
+	sf->maxlen = 0;
+	sf->precision = 0;
+}
 
 static int		sf_run(t_scanf *sf)
 {
@@ -57,14 +69,7 @@ int				ft_sscanf(const char *s, const char *format, ...)
 	t_scanf		sf;
 	va_list		args;
 
-	sf.args = &args;
-	sf.str = s;
-	sf.str_origin = s;
-	sf.format = format;
-	sf.format_origin = format;
-	sf.flags = 0;
-	sf.maxlen = 0;
-	sf.precision = 0;
+	sf_init(&sf, s, format, &args);
 	va_start(args, format);
 	sscanf_engine(&sf);
 	va_end(args);
