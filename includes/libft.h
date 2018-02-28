@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/02/09 19:43:00 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/02/28 23:25:22 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ char				*ft_strncpy(char *dst, const char *src, size_t n);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strnew(size_t size);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
+size_t				ft_strplen(const char *str, const char *max);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strrev(char *str);
 char				**ft_strsplit(char const *s, char c);
