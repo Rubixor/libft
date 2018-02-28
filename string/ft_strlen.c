@@ -3,23 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 17:46:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/06/02 17:19:06 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/02/28 23:15:15 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t		ft_strlen(const char *str)
 {
-	size_t i;
+	const char	*origin = str;
 
-	i = 0;
-	if (!str)
-		return (i);
-	while (str[i])
-		i++;
-	return (i);
+	while (*str)
+		str++;
+	return ((size_t)str - (size_t)origin);
+}
+
+size_t		ft_strplen(const char *str, const char *max)
+{
+	const char	*origin = str;
+
+	while ((*str) && (str < max))
+		str++;
+	return ((size_t)str - (size_t)origin);
 }
