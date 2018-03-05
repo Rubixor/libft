@@ -6,7 +6,7 @@
 #    By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#    Updated: 2018/03/05 13:28:50 by mdenoyel         ###   ########.fr        #
+#    Updated: 2018/03/05 14:02:17 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ RM =			rm -rf
 CFLAGS = 		-Wall -Wextra -Werror -Weverything -pipe
 
 OBJ =			ft_abs.o \
+				ft_atod.o \
 				ft_atoi.o \
 				ft_atol.o \
 				ft_atonum.o \
@@ -143,6 +144,7 @@ ALL_DIRS =		$(BUILD_DIR) \
 				$(BUILD_DIR)/$(DIR_STRING) \
 				$(BUILD_DIR)/$(DIR_LIST) \
 				$(BUILD_DIR)/$(DIR_SCANF) \
+				$(BUILD_DIR)/$(DIR_SCANF)/convs \
 #				$(BUILD_DIR)/$(DIR_PRINTF)
 
 ALL_OBJS=$(OBJ:%.o=$(BUILD_DIR)/%.o) \

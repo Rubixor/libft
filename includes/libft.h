@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/02/28 23:25:22 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/05 14:09:49 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_list
 }					t_list;
 
 int					ft_abs(int i);
+double				ft_atod(const char *s);
 int					ft_atoi(const char *s);
 long				ft_atol(const char *s);
 int					ft_atonum(const char *s, unsigned int *nb);

@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atod.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 13:21:18 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/05 13:55:26 by mdenoyel         ###   ########.fr       */
+/*   Created: 2018/03/05 13:35:32 by mdenoyel          #+#    #+#             */
+/*   Updated: 2018/03/05 14:24:50 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *s)
+static unsigned int		dec_len(int dec)
 {
-	int res;
-	int coeff;
+	unsigned int	len;
 
-	res = 0;
-	coeff = 1;
-	while (*s && ft_isspace(*s))
+	len = 0;
+	while (dec /= 10)
+		len++;
+	return (len + 1);
+}
+
+double					ft_atod(const char *s)
+{
+	int				p_ent;
+	double			p_dec;
+	unsigned int	dec;
+	unsigned int	d_len;
+
+	p_ent = ft_atoi(s);
+	while (*s != '.')
 		s++;
-	if (!*s)
-		return (0);
-	if (*s == '+')
-		s++;
-	else if (*s == '-')
-	{
-		coeff = -1;
-		s++;
-	}
-	while (*s && ft_isdigit(*s))
-	{
-		res = res * 10 + *s - '0';
-		s++;
-	}
-	return (res * coeff);
+	s++;
+	ft_atonum(s, &dec);
+	d_len = dec_len((int)dec);
+	p_dec = (double)dec;
+	while (d_len--)
+		p_dec /= 10;
+	return ((double)p_ent + p_dec);
 }
