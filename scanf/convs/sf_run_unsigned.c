@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 13:14:13 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/05 13:28:47 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/05 13:48:06 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int						sf_run_uint(t_scanf *sf)
 {
 	if (!(sf->flags & SF_FLAG_STAR))
 	{
-		if (!(ft_isdigit(*sf_str)) && (*sf->str != "+"))
+		if (!(ft_isdigit(*sf->str)) && (*sf->str != '+'))
 			return (SF_ERROR);
-		*va_arg(*sf->args, unsigned int *) = ft_atonum(sf->str);
+		ft_atonum(sf->str, va_arg(*sf->args, unsigned int *));
 		while (ft_isdigit(*sf->str))
 			sf->str++;
 		return (SF_OK);
