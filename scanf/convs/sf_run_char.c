@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sf_run_str.c                                       :+:      :+:    :+:   */
+/*   sf_run_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/07 18:00:42 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/05 13:02:07 by mdenoyel         ###   ########.fr       */
+/*   Created: 2018/02/26 14:25:14 by mdenoyel          #+#    #+#             */
+/*   Updated: 2018/02/28 23:30:34 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		sf_run_str(t_scanf *sf)
+int		sf_run_char(t_scanf *sf)
 {
-	const char		*arg = va_arg(*sf->args, const char *);
+	char			*arg;
+	unsigned int	maxlen;
+	size_t			len;
 
-	while (*sf->str && *sf->str == *arg)
-	{
-		sf->str++;
-		arg++;
-	}
-	if (!*arg)
-		return (SF_OK);
-	return (SF_ERROR);
+	arg = va_arg(*sf->args, char *);
+	maxlen = ((sf->flags & SF_FLAG_MAXLEN) ? sf->maxlen : 1);
+	len = ft_strplen(sf->str, &sf->str[maxlen]);
+	ft_strncpy(arg, sf->str, len);
+	return (SF_OK);
 }
