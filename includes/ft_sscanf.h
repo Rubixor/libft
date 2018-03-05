@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 23:10:56 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/05 13:44:27 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/05 14:45:17 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct		s_scanf
 }					t_scanf;
 
 int					sf_run_char(t_scanf *sf);
+int					sf_run_double(t_scanf *sf);
 int					sf_run_hex(t_scanf *sf);
 int					sf_run_int(t_scanf *sf);
 int					sf_run_str(t_scanf *sf);
@@ -59,10 +60,11 @@ typedef struct		s_scanf_run
 	int				(*run)(t_scanf *);
 }					t_scanf_run;
 
-# define SF_COUNT_CONVS 5
+# define SF_COUNT_CONVS 6
 
 static const t_scanf_run g_sf_run[SF_COUNT_CONVS] = {
 	(t_scanf_run){'c', 0, &sf_run_char},
+	(t_scanf_run){'f', 0, &sf_run_double},
 	(t_scanf_run){'x', 0, &sf_run_hex},
 	(t_scanf_run){'d', 0, &sf_run_int},
 	(t_scanf_run){'s', 0, &sf_run_str},
