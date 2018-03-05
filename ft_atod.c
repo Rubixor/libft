@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static unsigned int		dec_len(int dec)
+static unsigned int		dec_len(unsigned int dec)
 {
 	unsigned int	len;
 
@@ -34,7 +34,7 @@ double					ft_atod(const char *s)
 		s++;
 	s++;
 	ft_atonum(s, &dec);
-	d_len = dec_len((int)dec);
+	d_len = dec_len(dec);
 	p_dec = (double)dec;
 	while (d_len--)
 		p_dec /= 10;
