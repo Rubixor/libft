@@ -6,13 +6,13 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 19:03:14 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/05 12:57:11 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/08 15:27:07 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int		sf_int_len(t_scanf *sf)
+static unsigned int		int_len(t_scanf *sf)
 {
 	unsigned int	i;
 
@@ -36,10 +36,7 @@ int						sf_run_int(t_scanf *sf)
 			*va_arg(*sf->args, short *) = (short)ft_atoi(sf->str);
 		else
 			*va_arg(*sf->args, int *) = ft_atoi(sf->str);
-		while (ft_isdigit(*sf->str))
-			sf->str++;
-		return (SF_OK);
 	}
-	sf->str += sf_int_len(sf);
+	sf->str += int_len(sf);
 	return (SF_OK);
 }
