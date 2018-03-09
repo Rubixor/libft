@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 14:48:21 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/09 18:12:58 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/09 18:17:03 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static int		sscanf_engine(t_scanf *sf)
 	{
 		if (*sf->format == '%')
 		{
-			ft_putendl(sf->format); //
 			if (sf_run(sf) == SF_OK)
 				sf->format++;
 		}
@@ -82,7 +81,5 @@ unsigned int	ft_sscanf(const char *s, const char *format, ...)
 	va_start(args, format);
 	sscanf_engine(&sf);
 	va_end(args);
-	//ft_putendl(sf.str);
-	//ft_putendl(sf.format);
 	return (sf.arg_done);
 }
