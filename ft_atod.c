@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 13:35:32 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/05 18:11:36 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/09 14:24:20 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ double					ft_atod(const char *s)
 	unsigned int	dec;
 	unsigned int	d_len;
 
+	dec = 0;
 	p_ent = ft_atol(s);
 	while (*s != '.')
 		s++;
