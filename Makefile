@@ -6,7 +6,7 @@
 #    By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#    Updated: 2018/03/09 15:46:39 by mdenoyel         ###   ########.fr        #
+#    Updated: 2018/03/09 16:53:02 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,6 +108,7 @@ LIST =			ft_lst_pushback.o \
 
 DIR_SCANF =		scanf
 SCANF =			ft_sscanf.o \
+				convs/sf_run_end.o \
 				convs/sf_run_char.o \
 				convs/sf_run_double.o \
 				convs/sf_run_hex.o \

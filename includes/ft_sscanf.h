@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/11 23:10:56 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/05 14:45:17 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/09 17:13:30 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ typedef struct		s_scanf
 	unsigned int	flags;
 	unsigned int	maxlen;
 	unsigned int	precision;
-	unsigned int	padding;
+	unsigned int	arg_done;
 }					t_scanf;
 
+int					sf_run_end(t_scanf *sf);
 int					sf_run_char(t_scanf *sf);
 int					sf_run_double(t_scanf *sf);
 int					sf_run_hex(t_scanf *sf);
@@ -60,9 +61,10 @@ typedef struct		s_scanf_run
 	int				(*run)(t_scanf *);
 }					t_scanf_run;
 
-# define SF_COUNT_CONVS 6
+# define SF_COUNT_CONVS 7
 
 static const t_scanf_run g_sf_run[SF_COUNT_CONVS] = {
+	(t_scanf_run){'$', 0, &sf_run_end},
 	(t_scanf_run){'c', 0, &sf_run_char},
 	(t_scanf_run){'f', 0, &sf_run_double},
 	(t_scanf_run){'x', 0, &sf_run_hex},
@@ -91,6 +93,6 @@ static const t_scanf_modif g_sf_mod[SF_COUNT_MODIFS] = {
 	(t_scanf_modif){"*", 1, SF_FLAG_STAR, 0}
 };
 
-int					ft_sscanf(const char *s, const char *format, ...);
+unsigned int		ft_sscanf(const char *s, const char *format, ...);
 
 #endif
