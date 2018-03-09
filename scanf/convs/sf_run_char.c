@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 14:25:14 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/02/28 23:30:34 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/09 14:53:00 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int		sf_run_char(t_scanf *sf)
 	arg = va_arg(*sf->args, char *);
 	maxlen = ((sf->flags & SF_FLAG_MAXLEN) ? sf->maxlen : 1);
 	len = ft_strplen(sf->str, &sf->str[maxlen]);
-	ft_strncpy(arg, sf->str, len);
+	if (!(sf->flags & SF_FLAG_STAR))
+		ft_strncpy(arg, sf->str, len);
+	sf->str += len;
 	return (SF_OK);
 }
