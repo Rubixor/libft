@@ -6,12 +6,11 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 14:38:11 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/08 15:27:51 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/09 14:47:35 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	double_len(t_scanf *sf)
 {
