@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/09 15:46:21 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/09 16:01:46 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void				*ft_memset(void *b, int c, size_t len);
 
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strchr(const char *s, int c);
-unsigned int		ft_strchrpos(const char *s, int c)
+int					ft_strchrpos(const char *s, int c);
 void				ft_strcleanc(char **str, char c);
 void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
