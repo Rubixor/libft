@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/09 16:24:33 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/09 18:14:00 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/09 18:15:34 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int		sf_run_end(t_scanf *sf)
 {
-	if (*sf->str)
-		return (SF_ERROR);
-	return (SF_OK);
+	return (*sf->str ? SF_ERROR : SF_OK);
 }
