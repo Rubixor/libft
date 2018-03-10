@@ -6,7 +6,7 @@
 #    By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#    Updated: 2018/03/09 16:53:02 by mdenoyel         ###   ########.fr        #
+#    Updated: 2018/03/10 15:37:54 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -166,11 +166,8 @@ ALL_SRCS=$(OBJ:%.o=%.c) \
 
 all : $(NAME)
 
-help :
-	@echo $(ALL_OBJS)
-
 $(BUILD_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) -I ./includes/ -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 
 $(NAME) : $(ALL_DIRS) $(ALL_OBJS)
@@ -179,8 +176,6 @@ $(NAME) : $(ALL_DIRS) $(ALL_OBJS)
 
 $(ALL_DIRS) :
 	mkdir -p $@
-
-all_dirs : $(ALL_DIRS)
 
 clean :
 	$(RM) $(BUILD_DIR)
