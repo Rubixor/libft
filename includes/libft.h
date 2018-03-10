@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/09 16:01:46 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/10 22:06:30 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstpushsort(t_list **lst, t_list *item,
 						int (*cmp)(t_list *, t_list *));
 t_list				*ft_lst_pushback(t_list **lst, t_list *item);
+void				ft_lstsuppress(void *content, size_t size);
 
 /*
 ** Memory
@@ -122,11 +123,5 @@ char				*ft_strstr(const char *s1, const char *s2);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 size_t				ft_strsub_len(char const *s, char c);
 char				*ft_strtrim(char const *s);
-
-/*
-** Get_next_line
-*/
-
-int					get_next_line(int const fd, char **line);
 
 #endif
