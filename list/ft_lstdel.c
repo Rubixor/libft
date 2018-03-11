@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/12 13:23:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/10 22:05:39 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/11 17:03:36 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstsuppress(void *content, size_t content_size)
 {
-	void(content_size);
+	content_size = 0;
 	ft_memdel(&content);
 }
 
