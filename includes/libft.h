@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/10 22:06:30 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/12 15:49:48 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void				ft_lstinsert(t_list **last, t_list *item);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
+t_list				*ft_lstnewlink(void *content, size_t content_size);
 void				ft_lstpushsort(t_list **lst, t_list *item,
 						int (*cmp)(t_list *, t_list *));
 t_list				*ft_lst_pushback(t_list **lst, t_list *item);
