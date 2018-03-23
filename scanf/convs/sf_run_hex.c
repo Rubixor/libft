@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 13:06:36 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/09 16:18:36 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/23 03:15:15 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static unsigned int		base_conv(const char *str, const char *map,
 		*dest = *dest * base + c;
 		str++;
 	}
-	return ((unsigned int)str - (unsigned int)str_origin);
+	return ((unsigned int)((size_t)str - (size_t)str_origin));
 }
 
 int						sf_run_hex(t_scanf *sf)

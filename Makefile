@@ -6,7 +6,7 @@
 #    By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#    Updated: 2018/03/10 22:06:50 by mdenoyel         ###   ########.fr        #
+#*   Updated: 2018/03/23 03:16:49 by snicolet         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,15 @@ NAME =			libft.a
 
 INC =			-I ./includes
 
-CC =			clang
+#CC =			clang
 
 RM =			rm -rf
 
-CFLAGS = 		-Wall -Wextra -Werror -Weverything -pipe
+CFLAGS = 		-Wall -Wextra -Werror -pipe
+
+ifeq ($(CC),clang))
+	CFLAGS += -Weverything
+endif
 
 OBJ =			ft_abs.o \
 				ft_atod.o \
