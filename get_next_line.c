@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:09:07 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/10/18 12:04:56 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/03/12 15:48:40 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ static int	ft_process(char **buf, char **line, char **tmp)
 			*tmp2 = '\0';
 			*line = ft_strjoin(*tmp, *buf);
 			*tmp2 = '\n';
-			return (1);
+			return (IS_BUFF);
 		}
 		tmp3 = ft_strjoin(*tmp, *buf);
 		if (*tmp)
 			free(*tmp);
 		*tmp = tmp3;
 	}
-	return (0);
+	return (NO_BUFF);
 }
 
 static int	ft_help(char *tmp, char **buf, char **line)
@@ -43,11 +43,11 @@ static int	ft_help(char *tmp, char **buf, char **line)
 	{
 		ft_memdel((void**)(buf));
 		*line = NULL;
-		return (0);
+		return (NO_BUFF);
 	}
 	ft_memdel((void**)(buf));
 	*line = tmp;
-	return (1);
+	return (IS_BUFF);
 }
 
 static char	**ft_lst_chr(int const fd, t_list **list)
@@ -55,12 +55,11 @@ static char	**ft_lst_chr(int const fd, t_list **list)
 	t_list	*i;
 
 	i = *list;
-	while (i && i->content_size != (size_t)fd)
+	while ((i) && (i->content_size != (size_t)fd))
 		i = i->next;
 	if (i)
 		return ((char **)(&(i->content)));
-	i = ft_lstnew(NULL, 0);
-	i->content_size = (size_t)fd;
+	i = ft_lstnewlink(NULL, (size_t)fd);
 	ft_lstadd(list, i);
 	return ((char **)(&(i->content)));
 }
@@ -72,23 +71,23 @@ int			get_next_line(int const fd, char **line)
 	ssize_t			rd;
 	char			*tmp;
 
-	if (fd < 0 || line == NULL)
-		return (-1);
+	if ((fd < 0) || (line == NULL))
+		return (GNL_ERROR);
 	buf = ft_lst_chr(fd, &list);
 	tmp = (char *)malloc(sizeof(char));
-	tmp[0] = '\0';
-	while (!(ft_process(buf, line, &tmp)))
+	*tmp = '\0';
+	while ((ft_process(buf, line, &tmp)) == NO_BUFF)
 	{
 		*buf = (char *)malloc(sizeof(char) * (BUFF_SIZE + 1));
 		if (*buf)
 		{
 			if ((rd = read(fd, *buf, BUFF_SIZE)) == -1)
-				return (-1);
+				return (GNL_ERROR);
 			(*buf)[rd] = '\0';
 			if (rd == 0)
 				return (ft_help(tmp, buf, line));
 		}
 	}
 	ft_strcleanc(buf, '\n');
-	return (1);
+	return (GNL_SUCCESS);
 }

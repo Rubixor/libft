@@ -6,7 +6,7 @@
 #    By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#    Updated: 2018/03/10 22:06:50 by mdenoyel         ###   ########.fr        #
+#    Updated: 2018/03/12 15:26:55 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ CC =			clang
 RM =			rm -rf
 
 CFLAGS = 		-Wall -Wextra -Werror -Weverything -pipe
+
+EXTRA_FLAGS =
 
 OBJ =			ft_abs.o \
 				ft_atod.o \
@@ -167,7 +169,7 @@ ALL_SRCS=$(OBJ:%.o=%.c) \
 all : $(NAME)
 
 $(BUILD_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(EXTRA_FLAGS) $(INC) -c $< -o $@
 
 
 $(NAME) : $(ALL_DIRS) $(ALL_OBJS)
