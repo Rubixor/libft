@@ -6,7 +6,7 @@
 #    By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#*   Updated: 2018/03/23 03:24:05 by mdenoyel         ###   ########.fr       *#
+#    Updated: 2018/04/02 01:32:07 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RM =			rm -rf
 
 CFLAGS = 		-Wall -Wextra -Werror -pipe
 
-ifeq ($(CC),clang))
+ifeq ($(CC),clang)
 	CFLAGS += -Weverything
 endif
 
