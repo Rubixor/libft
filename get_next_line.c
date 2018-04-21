@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:09:07 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/12 15:48:40 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/04/02 01:25:07 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 #include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
+
+// static void	*ft_realloc_me(void *src, size_t size, size_t newsize)
+// {
+// 	void		*ptr;
+//
+// 	if (newsize < size)
+// 		size = newsize;
+// 	ptr = malloc(newsize);
+// 	ft_memcpy(ptr, src, size);
+// 	free(src);
+// 	return (ptr);
+// }
 
 static int	ft_process(char **buf, char **line, char **tmp)
 {
@@ -43,11 +55,11 @@ static int	ft_help(char *tmp, char **buf, char **line)
 	{
 		ft_memdel((void**)(buf));
 		*line = NULL;
-		return (NO_BUFF);
+		return (0);
 	}
 	ft_memdel((void**)(buf));
 	*line = tmp;
-	return (IS_BUFF);
+	return (0);
 }
 
 static char	**ft_lst_chr(int const fd, t_list **list)
@@ -61,7 +73,7 @@ static char	**ft_lst_chr(int const fd, t_list **list)
 		return ((char **)(&(i->content)));
 	i = ft_lstnewlink(NULL, (size_t)fd);
 	ft_lstadd(list, i);
-	return ((char **)(&(i->content)));
+	return ((char **)&i->content);
 }
 
 int			get_next_line(int const fd, char **line)
@@ -81,7 +93,7 @@ int			get_next_line(int const fd, char **line)
 		*buf = (char *)malloc(sizeof(char) * (BUFF_SIZE + 1));
 		if (*buf)
 		{
-			if ((rd = read(fd, *buf, BUFF_SIZE)) == -1)
+			if ((rd = read(fd, *buf, BUFF_SIZE)) < 0)
 				return (GNL_ERROR);
 			(*buf)[rd] = '\0';
 			if (rd == 0)
