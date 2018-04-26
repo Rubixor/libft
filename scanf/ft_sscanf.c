@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 14:48:21 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/09 18:17:03 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/04/26 16:09:06 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include "libft.h"
 #include <stdarg.h>
 
-static void		sf_init(t_scanf *sf, const char *s, const char *format, va_list *args)
+static void		sf_init(t_scanf *sf, const char *s,
+						const char *format, va_list *args)
 {
 	sf->args = args;
 	sf->str = s;
@@ -33,7 +34,7 @@ static int		sf_run(t_scanf *sf)
 
 	sf->format++;
 	if (!*sf->format)
-		return(-1);
+		return (-1);
 	i = SF_COUNT_CONVS;
 	while (i--)
 	{
