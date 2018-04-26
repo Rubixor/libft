@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 15:22:47 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/12 15:49:31 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/04/26 16:09:28 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 t_list	*ft_lstnewlink(void *content, size_t content_size)
 {
 	t_list		*new;
+
 	if (!(new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
 	new->content = content;
