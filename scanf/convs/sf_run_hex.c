@@ -6,17 +6,17 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 13:06:36 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/23 03:15:15 by snicolet         ###   ########.fr       */
+/*   Updated: 2018/04/26 16:04:06 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static unsigned int		base_conv(const char *str, const char *map,
-	unsigned int base, __intmax_t *dest)
+	unsigned int base, long long int *dest)
 {
-	const char	*str_origin = str;
-	__intmax_t	c;
+	const char		*str_origin = str;
+	long long int	c;
 
 	*dest = 0;
 	while ((c = ft_strchrpos(map, *str)) >= 0)
@@ -29,7 +29,7 @@ static unsigned int		base_conv(const char *str, const char *map,
 
 int						sf_run_hex(t_scanf *sf)
 {
-	__intmax_t	val;
+	long long int	val;
 
 	sf->str += base_conv(sf->str, "0123456789ABCDEF", 16, &val);
 	if (!(sf->flags & SF_FLAG_STAR))
