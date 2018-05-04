@@ -6,7 +6,7 @@
 #    By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:30 by mdenoyel          #+#    #+#              #
-#    Updated: 2018/04/26 16:01:08 by mdenoyel         ###   ########.fr        #
+#    Updated: 2018/05/04 17:31:36 by mdenoyel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ OBJ =			ft_abs.o \
 				ft_putnbr_fd.o \
 				ft_putstr.o \
 				ft_putstr_fd.o \
+				ft_readfile.o \
 				ft_size_bin.o \
 				ft_swap.o \
 				ft_tolower.o \
@@ -63,6 +64,7 @@ MEMORY =		ft_memalloc.o \
 				ft_memcmp.o \
 				ft_memcpy.o \
 				ft_memdel.o \
+				ft_memdup.o \
 				ft_memmove.o \
 				ft_memset.o \
 				ft_bzero.o

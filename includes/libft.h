@@ -6,7 +6,7 @@
 /*   By: mdenoyel <mdenoyel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:49:51 by mdenoyel          #+#    #+#             */
-/*   Updated: 2018/03/12 15:49:48 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2018/05/04 17:31:54 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void				ft_putnbr_fd(int n, int fd);
 size_t				ft_putstr(const char *s);
 void				ft_putstrlen(const char *s, int len);
 size_t				ft_putstr_fd(const char *s, int fd);
+char				*ft_readfile(const char *filepath, size_t *usize);
 size_t				ft_size_bin(long long n);
 void				ft_swap(void *a, void *b);
 int					ft_tolower(int c);
@@ -84,6 +85,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				ft_memdel(void **ap);
+void				*ft_memdup(const void *src, size_t size);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 
